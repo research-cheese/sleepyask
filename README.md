@@ -15,17 +15,23 @@ Example usage:
 ```python
 from sleepyask.chat import sleepy_ask
 
-output_file_path = 'draw.json'  # The file path in which you would like your responses to be stored
-
+# Your ChatGPT login information
 config = {
   "email": "Your ChatGPT email",
   "password": "Your ChatGPT password"
 }
+
+# List of questions you would like to ask ChatGPT
 question_list = [
   'What is 1 + 1?',
   'What is 1 + 2?',
   'What is 1 + 3?'
 ]
+
+# The filename in which you would like your responses to be stored.
+output_file_path = 'draw.json'  
+
+# Run sleepy_ask
 sleepy_ask(config=config,
            questions=question_list,
            output_file_path=output_file_path)
