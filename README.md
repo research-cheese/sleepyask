@@ -7,7 +7,7 @@
 
 ## Install as a Python Library
 ```
-pip install pyreason
+pip install sleepyask
 ```
 
 ## Sample code
