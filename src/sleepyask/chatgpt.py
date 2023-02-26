@@ -18,7 +18,6 @@ def ask_all_questions(config, questions : list, output_file_path : str) -> None:
 
     def ask_chat_gpt(question: str) -> str:
         question = str(question)
-        print(question)
         message = ""
         prev_text = ""
         for data in chatbot.ask(question):
@@ -34,7 +33,6 @@ def ask_all_questions(config, questions : list, output_file_path : str) -> None:
     for index, question in enumerate(questions):
         if index <= last_index: continue
 
-        print("HERE")
         chatgpt_response = ask_chat_gpt(question)
         row_to_append = {"question_number": index, "question": question,"response": __clean_str_for_json(chatgpt_response)}
         __append_to_file(output_file_path, row_to_append)
