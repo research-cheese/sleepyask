@@ -26,8 +26,6 @@ sleepy_ask(config=config,
            output_file_path=output_file_path)
 ```
 ## Get involved
-- 🐛 **Found a bug?** - Create an [issue][issue]  
-- ⚙️ **Interested in adding a feature?** - Check out the [project roadmap](ROADMAP.md) or suggest your own changes by creating an [issue][issue]   
-- 📖 **Can we improve the documentation?** - Even pull requests for small changes can be helpful. Feel free to change the [documentation][docs]!  
-- 😵 **See something wrong with the dataset?** - While our dataset may be accurate most of the time, we make the assumption that the preexisting datasets have the correct working and that the questions use only distinct numbers.
+- 🐛 **Found a bug or interested in adding a feature?** - Create an [issue][issue]  
 
+[issue]: https://github.com/hwelsters/sleepyask/issues
