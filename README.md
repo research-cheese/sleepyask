@@ -2,7 +2,7 @@
 ![image](https://user-images.githubusercontent.com/84760072/221398297-13f4d8e5-9061-4a63-bae6-32ace095d886.png)
 
 <p align="center">
-  A small tool for automating collecting data from ChatGPT
+  A small tool for automating collecting data from ChatGPT over long periods of time.
 </p>
 
 ## Install as a Python Library
