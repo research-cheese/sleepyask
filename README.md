@@ -5,6 +5,11 @@
   A small tool for automating collecting data from ChatGPT
 </p>
 
+## Install as a Python Library
+```
+pip install pyreason
+```
+
 ## Sample code
 Example usage:
 ```python
