@@ -5,6 +5,9 @@
   A small tool for automating collecting data from ChatGPT over long periods of time.
 </p>
 
+## What does it do?
+ChatGPT currently limits the number of questions that users may ask per hour. The goal of this project is to allow users to just leave their laptops on for extended periods of time to collect a large amount of responses from ChatGPT.
+
 ## Install as a Python Library
 ```
 pip install sleepyask
