@@ -37,7 +37,8 @@ output_file_path = 'draw.json'
 # Run sleepy_ask
 sleepy_ask(config=config,
            questions=question_list,
-           output_file_path=output_file_path)
+           output_file_path=output_file_path,
+           verbose=True)
 ```
 ## Get involved
 - 🐛 **Found a bug or interested in adding a feature?** - Create an [issue][issue]  
