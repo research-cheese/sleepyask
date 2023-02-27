@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sleepyask"
-version = "1.0.3"
+version = "0.0.1"
 authors = [
   { name="hwelsters", email="redacted@redacted.redacted" },
 ]
@@ -12,6 +12,10 @@ description = "A small tool for automating collecting data from ChatGPT"
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = []
+dependencies = [
+  'schedule == 1.1.0',
+  'revChatGPT == 2.3.6'
+]
 
 [project.urls]
 "Homepage" = "https://github.com/hwelsters/sleepyask"
