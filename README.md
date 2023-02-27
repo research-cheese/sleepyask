@@ -6,7 +6,7 @@
 </p>
 
 ## What does it do?
-ChatGPT currently limits the number of questions that users may ask per hour. The goal of this project is to allow users to just leave their computers on for extended periods of time to collect large amounts of responses from ChatGPT. There might not be a lot of practical use for this. Its main use is in research or data analysis.
+ChatGPT currently limits the number of questions that users may ask per hour. The goal of this library is to allow users to just leave their computers on for extended periods of time to collect large amounts of responses from ChatGPT. There might not be a lot of practical use for this. Its main use is in research or data analysis.
 
 ## Install as a Python Library
 ```
