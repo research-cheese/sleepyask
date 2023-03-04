@@ -16,7 +16,7 @@ pip install sleepyask
 ## Sample code
 There are multiple config methods:  
 Email + Password  
-```
+```python
 config = {
   "email": "Your ChatGPT email",
   "password": "Your ChatGPT password"
@@ -25,7 +25,7 @@ config = {
 
 Access Token:
 Access token can be found here: https://chat.openai.com/api/auth/session
-```
+```python
 config = {
   access_token = "Your access token"
 }
