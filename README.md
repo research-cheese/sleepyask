@@ -42,7 +42,7 @@ sleepy_ask(config=config,
            verbose=True)
 ```
 ### Multiple accounts
-This PyPi package also supports the use of multiple accounts to collect questions
+This PyPi package also supports the use of multiple accounts to collect questions  
 Example usage:
 ```python
 from sleepyask.chat import sleepy_ask
