@@ -30,6 +30,9 @@ config = {
   "access_token": "Your access token"
 }
 ```
+
+![image](https://user-images.githubusercontent.com/84760072/222874419-2b41ccab-4eef-445e-86e4-7a9ef0a48dd5.png)
+
 ### Single account
 Example usage:
 ```python
