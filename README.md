@@ -63,7 +63,7 @@ sleepy_ask(config=config,
            verbose=True)
 ```
 ### Multiple accounts
-You can use multiple accounts to save things at a significantly quicker rate.  
+You can use multiple accounts to collect responses at a significantly quicker rate.  
 Example usage:
 ```python
 from sleepyask.chat import sleepy_ask
