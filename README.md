@@ -29,6 +29,7 @@ Access token can be found here: https://chat.openai.com/api/auth/session
 config = {
   access_token = "Your access token"
 }
+```
 ### Single account
 Example usage:
 ```python
