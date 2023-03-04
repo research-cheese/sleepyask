@@ -14,7 +14,7 @@ pip install sleepyask
 ```
 
 ## Sample code
-There are multiple config methods:  
+There are multiple ways to configure authentication with ChatGPT:  
 Email + Password  
 ```python
 config = {
