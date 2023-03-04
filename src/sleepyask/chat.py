@@ -19,3 +19,15 @@ def sleepy_ask(config, questions : list, output_file_path : str, verbose : bool=
 
     func()
     while True: schedule.run_pending()
+
+def sleepy_ask_multi(configs, questions : list, output_file_path : str, verbose: bool = False):
+    if not isinstance(questions, list): raise ValueError("[questions] should be a list")
+    def func() -> None:
+        try: sleepyask.chatgpt.ask_questions_multi(configs=configs, questions=questions, output_file_path=output_file_path, verbose=verbose)
+        except Exception as e: logging.error(traceback.format_exc())
+    
+    schedule.every(1).hours.do(func)
+    schedule.every(1).hours.do(func)
+
+    func()
+    while True: schedule.run_pending()

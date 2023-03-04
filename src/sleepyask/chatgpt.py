@@ -3,6 +3,8 @@ import json
 from pathlib import Path
 import logging
 from datetime import datetime
+import threading
+import queue
 
 def __append_to_file(output_file_path: str, data):
     with open(output_file_path, 'a') as outfile:
@@ -16,38 +18,55 @@ def __clean_str_for_json(text: str):
 
 
 def ask_all_questions(config, questions : list, output_file_path : str, verbose:bool) -> None:
-    if verbose: print("[sleepyask] Logging into ChatGPT with user credentials")
-    chatbot = Chatbot(config=config)
-    if verbose: print("[sleepyask] Successfully logged in")
+    configs = []
+    configs.append(config)
+    ask_questions_multi(configs=configs, questions=questions, output_file_path=output_file_path, verbose=verbose)
 
-    def ask_chat_gpt(question: str) -> str:
-        question = str(question)
-        
-        if verbose: print("[sleepyask] Asking:", question)
+def ask_questions_multi(configs, questions : list, output_file_path: str, verbose: bool) -> None:
+    question_queue = queue.Queue()
 
-        logging.disable(logging.ERROR)
-        try:
+    def loader_worker():
+        print(f"[sleepyask] Loading questions into queue")
+        # Check for failed questions
+        if Path(output_file_path).is_file():
+            with open(output_file_path) as f:
+                asked_questions = []
+                for line in f:
+                    asked_questions.append(json.loads(line))
+                max_index = 0
+
+                for question in asked_questions:
+                    max_index = max(max_index, question["question_number"])
+
+                for index, question in enumerate(questions):
+                    if index <= max_index: continue
+                    question_queue.put({"question": questions[index], "question_number": index})
+
+    def asker_worker(index, config):
+        if verbose: print(f"[sleepyask {index}] Logging into ChatGPT with user credentials")
+        chatbot = Chatbot(config=config)
+        if verbose: print(f"[sleepyask {index}] Successfully logged in")
+
+        while True:
+            question = question_queue.get()
+            logging.disable(logging.ERROR)
+            
+            print(f"[sleepyask {index}] Asking:", question)
+
             message = ""
-            # prev_text = ""
-            for data in chatbot.ask(question):
+            for data in chatbot.ask(question["question"]):
                 message = data["message"]
-        except json.decoder.JSONDecodeError: pass
-        logging.disable(logging.NOTSET)
-        
-        if verbose: print("[sleepyask] Received:", message)
-        return message
-    
-    last_index = -1
-    if Path(output_file_path).is_file():
-        with open(output_file_path) as f:
-            last_index = eval(f.readlines()[-1])["question_number"]
+            logging.disable(logging.NOTSET)
 
-    for index, question in enumerate(questions):
-        if index <= last_index: continue
+            if verbose: print(f"[sleepyask {index}] Received:", message)
 
-        chatgpt_response = ask_chat_gpt(question)
-        now = datetime.now()
-        dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+            dt_string = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+            row_to_append = {"date_time": dt_string, "question_number": question["question_number"], "question": question["question"],"response": __clean_str_for_json(message)}
+            __append_to_file(output_file_path, row_to_append)
+            question_queue.task_done()
 
-        row_to_append = {"date_time": dt_string, "question_number": index, "question": question,"response": __clean_str_for_json(chatgpt_response)}
-        __append_to_file(output_file_path, row_to_append)
+    for index, config in enumerate(configs):
+        threading.Thread(target = asker_worker, daemon=True, kwargs={'index': index, 'config': config}).start()
+    threading.Thread(target = loader_worker, daemon=True).start()
+
+    question_queue.join()
