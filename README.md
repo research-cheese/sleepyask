@@ -13,7 +13,7 @@ ChatGPT currently limits the number of questions that users may ask per hour. Th
 pip install sleepyask
 ```
 
-![image](https://user-images.githubusercontent.com/84760072/222874429-2a37ad4a-32b5-4737-a073-105d7cc5577b.png)
+![image](https://user-images.githubusercontent.com/84760072/222878842-525040f4-79a9-4f14-a299-c2e4a4671a0e.png)
 
 ## Sample code
 There are multiple ways to configure authentication with ChatGPT:  
@@ -33,7 +33,7 @@ config = {
 }
 ```
 
-![image](https://user-images.githubusercontent.com/84760072/222874419-2b41ccab-4eef-445e-86e4-7a9ef0a48dd5.png)
+![image](https://user-images.githubusercontent.com/84760072/222878846-25273e3e-cc77-4c78-9430-9f446d9ab1f6.png)
 
 ### Single account
 Example usage:
