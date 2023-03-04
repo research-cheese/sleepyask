@@ -14,6 +14,7 @@ pip install sleepyask
 ```
 
 ## Sample code
+### Single account
 Example usage:
 ```python
 from sleepyask.chat import sleepy_ask
@@ -36,6 +37,41 @@ output_file_path = 'draw.json'
 
 # Run sleepy_ask
 sleepy_ask(config=config,
+           questions=question_list,
+           output_file_path=output_file_path,
+           verbose=True)
+```
+### Multiple accounts
+This PyPi package also supports the use of multiple accounts to collect questions
+Example usage:
+```python
+from sleepyask.chat import sleepy_ask
+
+# Your ChatGPT login information
+config_1 = {
+  "email": "Your ChatGPT email",
+  "password": "Your ChatGPT password"
+}
+
+config_2 = {
+  "email": "Your ChatGPT email",
+  "password": "Your ChatGPT password"
+}
+
+configs = [config_1, config_2]
+
+# List of questions you would like to ask ChatGPT
+question_list = [
+  'What is 1 + 1?',
+  'What is 1 + 2?',
+  'What is 1 + 3?'
+]
+
+# The filename in which you would like your responses to be stored.
+output_file_path = 'draw.json'  
+
+# Run sleepy_ask
+sleepy_ask_multi(configs=configs,
            questions=question_list,
            output_file_path=output_file_path,
            verbose=True)
