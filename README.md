@@ -13,7 +13,29 @@ ChatGPT currently limits the number of questions that users may ask per hour. Th
 pip install sleepyask
 ```
 
+![image](https://user-images.githubusercontent.com/84760072/222878906-288a6b86-6773-4930-a610-4cd1ee681daa.png)
+
 ## Sample code
+There are multiple ways to configure authentication with ChatGPT:  
+**Email + Password**  
+```python
+config = {
+  "email": "Your ChatGPT email",
+  "password": "Your ChatGPT password"
+}
+```  
+
+**Access Token**  
+Access token can be found here: https://chat.openai.com/api/auth/session
+```python
+config = {
+  "access_token": "Your access token"
+}
+```
+
+![image](https://user-images.githubusercontent.com/84760072/222878907-b5264dac-1fa7-487a-8e18-178266a7e958.png)
+
+### Single account
 Example usage:
 ```python
 from sleepyask.chat import sleepy_ask
@@ -36,6 +58,41 @@ output_file_path = 'draw.json'
 
 # Run sleepy_ask
 sleepy_ask(config=config,
+           questions=question_list,
+           output_file_path=output_file_path,
+           verbose=True)
+```
+### Multiple accounts
+You can use multiple accounts to collect responses at a significantly quicker rate.  
+Example usage:
+```python
+from sleepyask.chat import sleepy_ask
+
+# Your ChatGPT login information
+config_1 = {
+  "email": "Your ChatGPT email",
+  "password": "Your ChatGPT password"
+}
+
+config_2 = {
+  "email": "Your ChatGPT email",
+  "password": "Your ChatGPT password"
+}
+
+configs = [config_1, config_2]
+
+# List of questions you would like to ask ChatGPT
+question_list = [
+  'What is 1 + 1?',
+  'What is 1 + 2?',
+  'What is 1 + 3?'
+]
+
+# The filename in which you would like your responses to be stored.
+output_file_path = 'draw.json'  
+
+# Run sleepy_ask
+sleepy_ask_multi(configs=configs,
            questions=question_list,
            output_file_path=output_file_path,
            verbose=True)
