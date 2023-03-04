@@ -15,7 +15,7 @@ pip install sleepyask
 
 ## Sample code
 There are multiple ways to configure authentication with ChatGPT:  
-Email + Password  
+**Email + Password**  
 ```python
 config = {
   "email": "Your ChatGPT email",
@@ -23,7 +23,7 @@ config = {
 }
 ```  
 
-Access Token:
+**Access Token**  
 Access token can be found here: https://chat.openai.com/api/auth/session
 ```python
 config = {
