@@ -33,12 +33,19 @@ def ask_questions_multi(configs, questions : list, output_file_path: str, verbos
                     asked_questions.append(json.loads(line))
                 max_index = 0
 
+                check_set = set()
                 for question in asked_questions:
+                    check_set.add(question["question_number"])
                     max_index = max(max_index, question["question_number"])
 
-                for index, question in enumerate(questions):
-                    if index <= max_index: continue
+                whole = set(range(0, len(questions)))
+                question_list = whole - check_set
+
+                if len(question_list) == 0: quit()
+                
+                for index in question_list:
                     question_queue.put({"question": questions[index], "question_number": index})
+                    
 
     def asker_worker(index, config):
         if verbose: print(f"[sleepyask {index}] Logging into ChatGPT with user credentials")

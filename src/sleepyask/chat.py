@@ -13,9 +13,10 @@ def sleepy_ask(config, questions : list, output_file_path : str, verbose : bool=
     def func() -> None:
         try: sleepyask.chatgpt.ask_all_questions(config=config, questions=questions, output_file_path=output_file_path, verbose=verbose)
         except Exception as e: logging.error(traceback.format_exc())
+        print("[sleepyask] Completed current round")
     
-    schedule.every(1).hours.do(func)
-    schedule.every(1).hours.do(func)
+    schedule.every(15).minutes.do(func)
+    schedule.every(15).minutes.do(func)
 
     func()
     while True: schedule.run_pending()
@@ -26,8 +27,8 @@ def sleepy_ask_multi(configs, questions : list, output_file_path : str, verbose:
         try: sleepyask.chatgpt.ask_questions_multi(configs=configs, questions=questions, output_file_path=output_file_path, verbose=verbose)
         except Exception as e: logging.error(traceback.format_exc())
     
-    schedule.every(1).hours.do(func)
-    schedule.every(1).hours.do(func)
+    schedule.every(15).minutes.do(func)
+    schedule.every(15).minutes.do(func)
 
     func()
     while True: schedule.run_pending()
