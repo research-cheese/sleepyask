@@ -24,8 +24,9 @@ def ask_questions_multi(configs, questions : list, output_file_path: str, verbos
     question_queue = queue.Queue()
 
     def loader_worker():
-        print(f"[sleepyask] Loading questions into queue")
+        if verbose: print(f"[sleepyask] Loading questions into queue")
         # Check for failed questions
+        check_set = set()
         if Path(output_file_path).is_file():
             with open(output_file_path) as f:
                 asked_questions = []
@@ -33,18 +34,18 @@ def ask_questions_multi(configs, questions : list, output_file_path: str, verbos
                     asked_questions.append(json.loads(line))
                 max_index = 0
 
-                check_set = set()
                 for question in asked_questions:
                     check_set.add(question["question_number"])
                     max_index = max(max_index, question["question_number"])
 
-                whole = set(range(0, len(questions)))
-                question_list = whole - check_set
+        for index in range(0, len(questions)):
+            if not index in check_set:
+                question_queue.put({"question": questions[index], "question_number": index})
 
-                if len(question_list) == 0: quit()
-                
-                for index in question_list:
-                    question_queue.put({"question": questions[index], "question_number": index})
+        if question_queue.empty(): 
+            print("[sleepyask] All questions exhausted")
+            print("""
+***     DONE ASKING ALL QUESTIONS       ***""")
                     
 
     def asker_worker(index, config):
@@ -56,12 +57,16 @@ def ask_questions_multi(configs, questions : list, output_file_path: str, verbos
             question = question_queue.get()
             logging.disable(logging.ERROR)
             
-            print(f"[sleepyask {index}] Asking:", question)
-
-            message = ""
-            for data in chatbot.ask(question["question"]):
-                message = data["message"]
-            logging.disable(logging.NOTSET)
+            if verbose: print(f"[sleepyask {index}] Asking:", question["question"])
+            try:
+                message = ""
+                for data in chatbot.ask(question["question"]):
+                    message = data["message"]
+                logging.disable(logging.NOTSET)
+            except:
+                if verbose: print(f"[sleepyask {index}] Failed to ask questions. Will try again in 15 minutes")
+                question_queue.put(question)
+                return
 
             if verbose: print(f"[sleepyask {index}] Received:", message)
 
