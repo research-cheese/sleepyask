@@ -16,11 +16,7 @@ def __append_to_file(output_file_path: str, data):
 def __clean_str_for_json(text: str):
     return text.replace("\"", "\'")
 
-
-def ask_all_questions(config, questions : list, output_file_path : str, verbose:bool) -> None:
-    ask_questions_multi(configs=[config], questions=questions, output_file_path=output_file_path, verbose=verbose)
-
-def ask_questions_multi(configs, questions : list, output_file_path: str, verbose: bool) -> None:
+def ask_questions(configs, questions : list, output_file_path: str, verbose: bool) -> None:
     question_queue = queue.Queue()
 
     def loader_worker():
