@@ -1,8 +1,20 @@
-![image](https://user-images.githubusercontent.com/84760072/221398236-45ccef78-f75f-4ac5-93a9-0146bb4d63ed.png)
-![image](https://user-images.githubusercontent.com/84760072/221398297-13f4d8e5-9061-4a63-bae6-32ace095d886.png)
+![image](https://user-images.githubusercontent.com/84760072/223039320-2eb3b41f-3981-448d-a899-52ee9cb63acd.png)
 
 <p align="center">
   A small tool for automating collecting data from ChatGPT over long periods of time.
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="400" />
+</p>
+
+<p align="center">
+	<a href="https://github.com/hwelsters/sleepyask/stargazers">
+		<img alt="Stargazers" src="https://img.shields.io/github/stars/hwelsters/sleepyask?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41"></a>
+	<a href="https://github.com/hwelsters/sleepyask/releases/latest">
+		<img alt="Releases" src="https://img.shields.io/github/release/hwelsters/sleepyask.svg?style=for-the-badge&logo=github&color=F2CDCD&logoColor=D9E0EE&labelColor=302D41"/></a>
+	<a href="https://github.com/hwelsters/sleepyask/issues">
+		<img alt="Issues" src="https://img.shields.io/github/issues/hwelsters/sleepyask?style=for-the-badge&logo=gitbook&color=B5E8E0&logoColor=D9E0EE&labelColor=302D41"></a>
 </p>
 
 ## What does it do?
@@ -13,7 +25,7 @@ ChatGPT currently limits the number of questions that users may ask per hour. Th
 pip install sleepyask
 ```
 
-![image](https://user-images.githubusercontent.com/84760072/222878906-288a6b86-6773-4930-a610-4cd1ee681daa.png)
+![image](https://user-images.githubusercontent.com/84760072/223040760-e440fd82-9fa0-4869-9ea0-7028373752ee.png)
 
 ## Sample code
 There are multiple ways to configure authentication with ChatGPT:  
@@ -33,7 +45,7 @@ config = {
 }
 ```
 
-![image](https://user-images.githubusercontent.com/84760072/222878907-b5264dac-1fa7-487a-8e18-178266a7e958.png)
+![image](https://user-images.githubusercontent.com/84760072/223040769-1f0a4e76-247f-444f-b6f7-4ea2e8addca4.png)
 
 ### Single account
 Example usage:
