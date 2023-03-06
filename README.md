@@ -5,7 +5,9 @@
   A small tool for automating collecting data from ChatGPT over long periods of time.
 </p>
 
-![image](https://user-images.githubusercontent.com/84760072/223038151-2fe58472-419c-45ed-89bc-fddc0388b043.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="400" />
+</p>
 
 <p align="center">
 	<a href="https://github.com/hwelsters/sleepyask/stargazers">
