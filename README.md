@@ -111,5 +111,6 @@ sleepy_ask_multi(configs=configs,
 ```
 ## Get involved
 - 🐛 **Found a bug or interested in adding a feature?** - Create an [issue][issue]  
+- 🤗 **Want to help?** - Create a pull-request!  
 
 [issue]: https://github.com/hwelsters/sleepyask/issues
