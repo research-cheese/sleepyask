@@ -1,5 +1,5 @@
 ![image](https://user-images.githubusercontent.com/84760072/223039320-2eb3b41f-3981-448d-a899-52ee9cb63acd.png)
-![image](https://user-images.githubusercontent.com/84760072/223040223-cbc1a9ae-9dff-467c-b1e7-20ba04f52b59.png)
+![image](https://user-images.githubusercontent.com/84760072/223040518-49923040-af7a-423f-a2f5-d8791cf1d71a.png)
 
 <p align="center">
   A small tool for automating collecting data from ChatGPT over long periods of time.
@@ -26,7 +26,7 @@ ChatGPT currently limits the number of questions that users may ask per hour. Th
 pip install sleepyask
 ```
 
-![image](https://user-images.githubusercontent.com/84760072/222878906-288a6b86-6773-4930-a610-4cd1ee681daa.png)
+![image](https://user-images.githubusercontent.com/84760072/223040760-e440fd82-9fa0-4869-9ea0-7028373752ee.png)
 
 ## Sample code
 There are multiple ways to configure authentication with ChatGPT:  
@@ -46,7 +46,7 @@ config = {
 }
 ```
 
-![image](https://user-images.githubusercontent.com/84760072/222878907-b5264dac-1fa7-487a-8e18-178266a7e958.png)
+![image](https://user-images.githubusercontent.com/84760072/223040769-1f0a4e76-247f-444f-b6f7-4ea2e8addca4.png)
 
 ### Single account
 Example usage:
