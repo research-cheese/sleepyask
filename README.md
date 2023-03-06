@@ -148,6 +148,6 @@ chat.ask(configs=configs,
 - 🤗 **Want to help?** - Create a pull-request!  
 
 ## Credits
-- I copied [Catppuccin's](https://github.com/catppuccin) beautiful colors and README.
+- I copied/stole [Catppuccin's](https://github.com/catppuccin) beautiful colors and README.
 
 [issue]: https://github.com/hwelsters/sleepyask/issues
