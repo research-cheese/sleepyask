@@ -27,7 +27,65 @@ pip install sleepyask
 
 ![image](https://user-images.githubusercontent.com/84760072/223040760-e440fd82-9fa0-4869-9ea0-7028373752ee.png)
 
+## Documentation
+
+<details>
+	<summary><h3>Using the Official ChatGPT API</h3></summary>
+	
+## Authentication
+You are required to provide an organization as well as an API Key  
+If you are not part of an organization, use this: org-PuBY7H2zebXAGmpU6YsRQ3c1  
+Your create an API Key on OpenAI by 
+```
+clicking on your profile picture on the top-right > View API Keys > Create new secret key.  
+```
+Sample config
+```python
+config = {
+	"organization": "Your OpenAI organization",
+	"api_key": "Your OpenAI api key"
+}
+```
 ## Sample code
+```python
+from sleepyask.openai import chat
+
+# Your ChatGPT login information
+config_1 = {
+	"organization": "Your ChatGPT organization",
+	"api_key": "Your ChatGPT api key"
+}
+
+config_2 = {
+	"organization": "Your ChatGPT organization",
+	"api_key": "Your ChatGPT api key"
+}
+
+configs = [config_1, config_2]
+
+# List of questions you would like to ask ChatGPT
+question_list = [
+  'What is 1 + 1?',
+  'What is 1 + 2?',
+  'What is 1 + 3?'
+]
+
+# The filename in which you would like your responses to be stored.
+output_file_path = 'draw.json'  
+
+# Run sleepy_ask
+chat.ask(configs=configs,
+           questions=question_list,
+           output_file_path=output_file_path,
+           verbose=True)
+```
+</details>
+
+  
+<details>
+	<summary><h3>Using the Unofficial ChatGPT API</h3></summary>
+	
+## Authentication
 There are multiple ways to configure authentication with ChatGPT:  
 **Email + Password**  
 ```python
@@ -47,38 +105,11 @@ config = {
 
 ![image](https://user-images.githubusercontent.com/84760072/223040769-1f0a4e76-247f-444f-b6f7-4ea2e8addca4.png)
 
-### Single account
-Example usage:
-```python
-from sleepyask.chat import sleepy_ask
-
-# Your ChatGPT login information
-config = {
-  "email": "Your ChatGPT email",
-  "password": "Your ChatGPT password"
-}
-
-# List of questions you would like to ask ChatGPT
-question_list = [
-  'What is 1 + 1?',
-  'What is 1 + 2?',
-  'What is 1 + 3?'
-]
-
-# The filename in which you would like your responses to be stored.
-output_file_path = 'draw.json'  
-
-# Run sleepy_ask
-sleepy_ask(config=config,
-           questions=question_list,
-           output_file_path=output_file_path,
-           verbose=True)
-```
-### Multiple accounts
+### Sleepyask supports the use of multiple accounts
 You can use multiple accounts to collect responses at a significantly quicker rate.  
 Example usage:
 ```python
-from sleepyask.chat import sleepy_ask
+from sleepyask.free import chat
 
 # Your ChatGPT login information
 config_1 = {
@@ -104,11 +135,13 @@ question_list = [
 output_file_path = 'draw.json'  
 
 # Run sleepy_ask
-sleepy_ask_multi(configs=configs,
+chat.ask(configs=configs,
            questions=question_list,
            output_file_path=output_file_path,
            verbose=True)
 ```
+</details>
+
 ## Get involved
 - 🐛 **Found a bug or interested in adding a feature?** - Create an [issue][issue]  
 - 🤗 **Want to help?** - Create a pull-request!  
