@@ -147,4 +147,7 @@ chat.ask(configs=configs,
 - 🐛 **Found a bug or interested in adding a feature?** - Create an [issue][issue]  
 - 🤗 **Want to help?** - Create a pull-request!  
 
+## Credits
+- I copied [Catppuccin's](https://github.com/catppuccin) beautiful colors and README.
+
 [issue]: https://github.com/hwelsters/sleepyask/issues
