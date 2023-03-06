@@ -1,5 +1,5 @@
 ![image](https://user-images.githubusercontent.com/84760072/223039320-2eb3b41f-3981-448d-a899-52ee9cb63acd.png)
-![image](https://user-images.githubusercontent.com/84760072/223039672-467d4741-d49e-4947-9e89-5b134b0138b1.png)
+![image](https://user-images.githubusercontent.com/84760072/223039755-eb5e6180-f158-4f33-8c04-f7670f278468.png)
 
 <p align="center">
   A small tool for automating collecting data from ChatGPT over long periods of time.
