@@ -1,7 +1,5 @@
-from revChatGPT.V1 import Chatbot
 import json
 from pathlib import Path
-import logging
 from datetime import datetime
 import threading
 import queue
@@ -74,7 +72,8 @@ def ask_questions(configs, questions : list, output_file_path: str, verbose: boo
             question_queue.task_done()
 
     for index, config in enumerate(configs):
-        threading.Thread(target = asker_worker, daemon=True, kwargs={'index': index, 'config': config}).start()
+        for num in range(config["count"]):
+            threading.Thread(target = asker_worker, daemon=True, kwargs={'index': index * config["count"] + num, 'config': config}).start()
     threading.Thread(target = loader_worker, daemon=True).start()
 
     question_queue.join()
