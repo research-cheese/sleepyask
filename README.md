@@ -37,13 +37,14 @@ You are required to provide an organization as well as an API Key
 If you are not part of an organization, use this: org-PuBY7H2zebXAGmpU6YsRQ3c1  
 Your create an API Key on OpenAI by 
 ```
-clicking on your profile picture on the top-right > View API Keys > Create new secret key.  
+Clicking on your profile picture on the top-right > View API Keys > Create new secret key.  
 ```
 Sample config
 ```python
 config = {
 	"organization": "Your OpenAI organization",
-	"api_key": "Your OpenAI api key"
+	"api_key": "Your OpenAI api key",
+	"count": 1 	# The number of workers to create for asking questions
 }
 ```
 ## Sample code
@@ -53,12 +54,14 @@ from sleepyask.openai import chat
 # Your ChatGPT login information
 config_1 = {
 	"organization": "Your ChatGPT organization",
-	"api_key": "Your ChatGPT api key"
+	"api_key": "Your ChatGPT api key",
+	"count": 1
 }
 
 config_2 = {
 	"organization": "Your ChatGPT organization",
-	"api_key": "Your ChatGPT api key"
+	"api_key": "Your ChatGPT api key",
+	"count": 1
 }
 
 configs = [config_1, config_2]
