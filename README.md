@@ -17,20 +17,20 @@
 		<img alt="Issues" src="https://img.shields.io/github/issues/hwelsters/sleepyask?style=for-the-badge&logo=gitbook&color=B5E8E0&logoColor=D9E0EE&labelColor=302D41"></a>
 </p>
 
-# What does it do?
+## What does it do?
 ChatGPT currently limits the number of questions that users may ask per hour. The goal of this project is to allow users to just leave their computers on for extended periods of time to collect large amounts of responses from ChatGPT. There might not be a lot of practical use for this. Its main use is in research or data analysis.
 
-# Install as a Python Library
+## Install as a Python Library
 ```
 pip install sleepyask
 ```
 
 ![image](https://user-images.githubusercontent.com/84760072/223040760-e440fd82-9fa0-4869-9ea0-7028373752ee.png)
 
-# Documentation
+## Documentation
 
 <details>
-	<summary><h3>Using the Official ChatGPT API</h3></summary>
+	<summary><h4>Using the Official ChatGPT API</h4></summary>
 	
 ## Authentication
 You are required to provide an organization as well as an API Key  
@@ -63,7 +63,7 @@ config_2 = {
 
 configs = [config_1, config_2]
 
-# List of questions you would like to ask ChatGPT
+## List of questions you would like to ask ChatGPT
 question_list = [
   'What is 1 + 1?',
   'What is 1 + 2?',
@@ -80,10 +80,8 @@ chat.ask(configs=configs,
            verbose=True)
 ```
 </details>
-
-  
 <details>
-	<summary><h3>Using the Unofficial ChatGPT API</h3></summary>
+	<summary><h4>Using the Unofficial ChatGPT API</h4></summary>
 	
 ## Authentication
 There are multiple ways to configure authentication with ChatGPT:  
@@ -142,7 +140,7 @@ chat.ask(configs=configs,
 ```
 </details>
 
-# Get involved
+## Get involved
 - 🐛 **Found a bug or interested in adding a feature?** - Create an [issue][issue]  
 - 🤗 **Want to help?** - Create a pull-request!  
 
