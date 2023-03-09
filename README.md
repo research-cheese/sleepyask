@@ -34,17 +34,19 @@ pip install sleepyask
 	
 ## Authentication
 You are required to provide an organization as well as an API Key  
-If you are not part of an organization, use this: org-PuBY7H2zebXAGmpU6YsRQ3c1  
-You create an API Key on OpenAI by 
+`organization` - If you are not part of an organization, use this: org-PuBY7H2zebXAGmpU6YsRQ3c1  
+`api_key` - You create an API Key on OpenAI by 
 ```
 Clicking on your profile picture on the top-right > View API Keys > Create new secret key.  
 ```
+`count` - This specifies the number of workers to create for asking questions. You can have multiple workers asking questions in parallel.  
+	
 Sample config
 ```python
 config = {
 	"organization": "Your OpenAI organization",
 	"api_key": "Your OpenAI api key",
-	"count": 1 	# The number of workers to create for asking questions
+	"count": 1 
 }
 ```
 ## Sample code
