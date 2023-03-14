@@ -55,17 +55,21 @@ def ask_questions(configs, questions : list, output_file_path: str, verbose: boo
             question = question_queue.get()
             message = ''
             if verbose: print(f"[sleepyask {index}] Asking:", question["question"])
+            # logging.disable(logging.ERROR)
             message = openai.ChatCompletion.create(
                 model=model,
                 messages=[
                     {"role": "user", "content": question["question"]},
                 ]
-            )["choices"][0]["message"]["content"]
+            )
+            actual_model = message["model"]
+            usage = message["usage"]
+            message = message["choices"][0]["message"]["content"]
 
             if verbose: print(f"[sleepyask {index}] Received:", message)
 
             dt_string = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-            row_to_append = {"model": model, "date_time": dt_string, "question_number": question["question_number"], "question": question["question"],"response": __clean_str_for_json(message)}
+            row_to_append = {"model": actual_model, "date_time": dt_string, "question_number": question["question_number"], "question": question["question"],"response": __clean_str_for_json(message), **usage}
             __append_to_file(output_file_path, row_to_append)
             question_queue.task_done()
 
