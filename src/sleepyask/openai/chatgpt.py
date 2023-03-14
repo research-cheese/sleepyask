@@ -55,7 +55,6 @@ def ask_questions(configs, questions : list, output_file_path: str, verbose: boo
             question = question_queue.get()
             message = ''
             if verbose: print(f"[sleepyask {index}] Asking:", question["question"])
-            # logging.disable(logging.ERROR)
             message = openai.ChatCompletion.create(
                 model=model,
                 messages=[
