@@ -9,7 +9,6 @@ def ask(configs : list, questions : list, output_file_path : str, verbose: bool 
     `questions` should contain a list of questions you would like ChatGPT to answer.\n
     `output_file_path` should be the file path where you would like your responses to be saved.\n
     '''
-<<<<<<< HEAD
 
     while True:
         if not isinstance(questions, list): raise ValueError("[questions] should be a list")
@@ -20,15 +19,3 @@ def ask(configs : list, questions : list, output_file_path : str, verbose: bool 
         func()
         time.sleep(60)
         
-=======
-    if not isinstance(questions, list): raise ValueError("[questions] should be a list")
-    def func() -> None:
-        try: ask_questions(configs=configs, questions=questions, output_file_path=output_file_path, verbose=verbose, model=model)
-        except Exception as e: logging.error(traceback.format_exc())
-    
-    schedule.every(15).minutes.do(func)
-    schedule.every(15).minutes.do(func)
-
-    func()
-    while True: schedule.run_pending()
->>>>>>> e47803844bf417502f73e4468b25b13f32134d93
