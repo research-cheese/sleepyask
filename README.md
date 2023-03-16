@@ -34,7 +34,7 @@ pip install sleepyask
 	
 ## Authentication
 You are required to provide an organization as well as an API Key  
-`organization` - Your organization ID. Get it here: https://platform.openai.com/account/org-settings
+`organization` - Your organization ID. Get it here: https://platform.openai.com/account/org-settings  
 `api_key` - You create an API Key on OpenAI by. Get it here: https://platform.openai.com/account/api-keys
 ```
 Clicking on your profile picture on the top-right > View API Keys > Create new secret key.  
