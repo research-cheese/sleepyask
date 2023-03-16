@@ -83,7 +83,6 @@ def ask_questions(configs, questions: list, output_file_path: str, verbose: bool
                                  question["question_number"], "question": question["question"], "response": __clean_str_for_json(message), **usage}
                 __append_to_file(output_file_path, row_to_append)
 
-                print("FINISH")
             except openai.error.AuthenticationError:
                 logging.error(traceback.format_exc())
                 question_queue.put(question)
