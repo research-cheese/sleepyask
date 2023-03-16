@@ -76,6 +76,7 @@ question_list = [
 ]
 
 # The filename in which you would like your responses to be stored.
+# sleepyask will create this file for you. If you create it yourself, there might be some problems.
 output_file_path = 'draw.json'  
 
 # Run sleepy_ask
