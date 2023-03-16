@@ -29,10 +29,7 @@ pip install sleepyask
 
 ## Documentation
 
-<details>
-	<summary><h4>Using the Official ChatGPT API</h4></summary>
-	
-## Authentication
+### Authentication
 You are required to provide an organization as well as an API Key  
 `organization` - Your organization ID. Get it here: https://platform.openai.com/account/org-settings  
 `api_key` - You create an API Key on OpenAI by. Get it here: https://platform.openai.com/account/api-keys
@@ -49,7 +46,7 @@ config = {
 	"count": 1 
 }
 ```
-## Sample code
+### Sample code
 ```python
 from sleepyask.openai import chat
 
@@ -85,7 +82,6 @@ chat.ask(configs=configs,
            output_file_path=output_file_path,
            verbose=True)
 ```
-</details>
 
 ## Get involved
 - 🐛 **Found a bug or interested in adding a feature?** - Create an [issue][issue]  
