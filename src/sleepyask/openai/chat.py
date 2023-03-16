@@ -13,7 +13,7 @@ def ask(configs : list, questions : list, output_file_path : str, verbose: bool 
     while True:
         if not isinstance(questions, list): raise ValueError("[questions] should be a list")
         def func() -> None:
-            try: ask_questions(configs=configs, questions=questions, output_file_path=output_file_path, verbose=verbose)
+            try: ask_questions(configs=configs, questions=questions, output_file_path=output_file_path, verbose=verbose, model)
             except Exception as e: logging.error(traceback.format_exc())
         
         func()
