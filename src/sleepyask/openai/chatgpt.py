@@ -3,7 +3,7 @@ from pathlib import Path
 from datetime import datetime
 import threading
 import queue
-import logging 
+import logging
 import traceback
 
 
@@ -18,7 +18,7 @@ def __clean_str_for_json(text: str):
     return text.replace("\"", "\'")
 
 
-def ask_questions(configs, questions: list, output_file_path: str, verbose: bool, model) -> None:
+def ask_questions(configs, questions: list, output_file_path: str, verbose: bool, model, system_text : str = None) -> None:
     question_queue = queue.Queue()
 
     def loader_worker():
@@ -65,6 +65,12 @@ def ask_questions(configs, questions: list, output_file_path: str, verbose: bool
                 print(f"[sleepyask {index}] Asking:", question["question"])
             # logging.disable(logging.ERROR)
             try:
+                messages = [
+                    {"role": "user", "content": question["question"]},
+                ]
+
+                if (system_text != None): messages.insert(0, {"role": "system", "content": system_text})
+                
                 message = openai.ChatCompletion.create(
                     model=model,
                     messages=[
