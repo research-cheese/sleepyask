@@ -86,6 +86,8 @@ chat.ask(configs=configs,
 # verbose : bool = Whether or not sleepyask should print its prompts. It is False by default.
 # model: str = The ChatGPT model to ask. This is "gpt-3.5-turbo" by default.
 # system_text: str | None = System text to prime ChatGPT. This is None by default.
+# temperature: float | None = Defines how non-deterministic ChatGPT is. Ranges from 0 - 2. Lower values are more deterministic. This is 1 by default
+# max_tokens: int | None = Defines the maximum number of tokens in ChatGPT's response. This is 2048 by default.
 ```
 
 ## Get involved
