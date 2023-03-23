@@ -5,6 +5,7 @@ import threading
 import queue
 import logging
 import traceback
+import time
 
 
 def __append_to_file(output_file_path: str, data):
@@ -18,7 +19,7 @@ def __clean_str_for_json(text: str):
     return text.replace("\"", "\'")
 
 
-def ask_questions(configs, questions: list, output_file_path: str, verbose: bool, model, system_text : str = None) -> None:
+def ask_questions(configs : list, questions : list, output_file_path : str, verbose: bool = False, model : str = "gpt-3.5-turbo", system_text : str | None = None, temperature : float | None = 1, max_tokens : int | None = 2048) -> None:
     question_queue = queue.Queue()
 
     def loader_worker():
@@ -69,9 +70,13 @@ def ask_questions(configs, questions: list, output_file_path: str, verbose: bool
                     {"role": "user", "content": question["question"]},
                 ]
 
-                if (system_text != None): messages.insert(0, {"role": "system", "content": system_text})
-                
+                if (system_text != None):
+                    messages.insert(
+                        0, {"role": "system", "content": system_text})
+
                 message = openai.ChatCompletion.create(
+                    temperature=temperature,
+                    max_tokens=max_tokens,
                     model=model,
                     messages=[
                         {"role": "user", "content": question["question"]},
@@ -85,14 +90,16 @@ def ask_questions(configs, questions: list, output_file_path: str, verbose: bool
                     print(f"[sleepyask {index}] Received:", message)
 
                 dt_string = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-                row_to_append = {"model": actual_model, "date_time": dt_string, "question_number":
-                                 question["question_number"], "question": question["question"], "response": __clean_str_for_json(message), **usage}
+                row_to_append = {"model": actual_model, "temperature": temperature, "max_tokens": max_tokens, "date_time": dt_string, "question_number":
+                                 question["question_number"], "question": question["question"], "system_text": str(system_text), "response": __clean_str_for_json(message), **usage}
                 __append_to_file(output_file_path, row_to_append)
 
             except openai.error.AuthenticationError:
                 logging.error(traceback.format_exc())
                 question_queue.put(question)
                 succeed = False
+            except:
+                time.sleep(120)
 
             question_queue.task_done()
 
