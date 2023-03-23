@@ -81,6 +81,11 @@ chat.ask(configs=configs,
            questions=question_list,
            output_file_path=output_file_path,
            verbose=True)
+
+# chat.ask has the following optional parameters:
+# verbose : bool = Whether or not sleepyask should print its prompts. It is False by default.
+# model: str = The ChatGPT model to ask. This is "gpt-3.5-turbo" by default.
+# system_text: str | None = System text to prime ChatGPT. This is None by default.
 ```
 
 ## Get involved
