@@ -1,40 +1,53 @@
-![image](https://user-images.githubusercontent.com/84760072/223039320-2eb3b41f-3981-448d-a899-52ee9cb63acd.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/84760072/227806954-ee58434a-c782-4c79-901a-5ca8db264bfd.png" width=450/>
+</p>
 
 <p align="center">
   A small tool for automating collecting data from ChatGPT over long periods of time.
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="400" />
+  <img src="https://user-images.githubusercontent.com/84760072/227807017-21bcda58-4e89-4470-bb8d-738e9269ccae.png" width="900" />
 </p>
 
 <p align="center">
 	<a href="https://github.com/hwelsters/sleepyask/stargazers">
-		<img alt="Stargazers" src="https://img.shields.io/github/stars/hwelsters/sleepyask?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41"></a>
+		<img alt="Stargazers" src="https://img.shields.io/github/stars/hwelsters/sleepyask?style=for-the-badge&logo=starship&color=f9e1cb&logoColor=ffffff&labelColor=342430"></a>
 	<a href="https://github.com/hwelsters/sleepyask/releases/latest">
-		<img alt="Releases" src="https://img.shields.io/github/release/hwelsters/sleepyask.svg?style=for-the-badge&logo=github&color=F2CDCD&logoColor=D9E0EE&labelColor=302D41"/></a>
+		<img alt="Releases" src="https://img.shields.io/github/release/hwelsters/sleepyask.svg?style=for-the-badge&logo=starship&color=f9e1cb&logoColor=ffffff&labelColor=342430"/></a>
 	<a href="https://github.com/hwelsters/sleepyask/issues">
-		<img alt="Issues" src="https://img.shields.io/github/issues/hwelsters/sleepyask?style=for-the-badge&logo=gitbook&color=B5E8E0&logoColor=D9E0EE&labelColor=302D41"></a>
+		<img alt="Issues" src="https://img.shields.io/github/issues/hwelsters/sleepyask?style=for-the-badge&logo=starship&color=f9e1cb&logoColor=ffffff&labelColor=342430"></a>
 </p>
 
 ## What does it do?
 ChatGPT currently limits the number of questions that users may ask per hour. The goal of this project is to allow users to just leave their computers on for extended periods of time to collect large amounts of responses from ChatGPT. There might not be a lot of practical use for this. Its main use is in research or data analysis.
 
-## Install as a Python Library
+## Installation
+To install sleepyask, do one of the following:
+```bash
+> pip install sleepyask
+> py -m pip install sleepyask
+> python -m pip install sleepyask
 ```
-pip install sleepyask
+This project also depends on the following packages
+```bash
+> openai
 ```
 
-![image](https://user-images.githubusercontent.com/84760072/223040760-e440fd82-9fa0-4869-9ea0-7028373752ee.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/84760072/227807017-21bcda58-4e89-4470-bb8d-738e9269ccae.png" width="900" />
+</p>
 
-## Documentation
+## Usage
 
 ### Authentication
 You are required to provide an organization as well as an API Key  
 `organization` - Your organization ID. Get it here: https://platform.openai.com/account/org-settings  
 `api_key` - You create an API Key on OpenAI by. Get it here: https://platform.openai.com/account/api-keys
-```
-Clicking on your profile picture on the top-right > View API Keys > Create new secret key.  
+```bash
+> Clicking on your profile picture on the top-right 
+> View API Keys 
+> Create new secret key.  
 ```
 `count` - This specifies the number of workers to create for asking questions. You can have multiple workers asking questions in parallel.  
 	
@@ -93,8 +106,5 @@ chat.ask(configs=configs,
 ## Get involved
 - 🐛 **Found a bug or interested in adding a feature?** - Create an [issue][issue]  
 - 🤗 **Want to help?** - Create a pull-request!  
-
-## Credits
-- I copied/stole [Catppuccin's](https://github.com/catppuccin) beautiful colors and README.
 
 [issue]: https://github.com/hwelsters/sleepyask/issues
