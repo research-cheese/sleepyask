@@ -22,12 +22,16 @@
 ## What does it do?
 ChatGPT currently limits the number of questions that users may ask per hour. The goal of this project is to allow users to just leave their computers on for extended periods of time to collect large amounts of responses from ChatGPT. There might not be a lot of practical use for this. Its main use is in research or data analysis.
 
-## Install as a Python Library
-If you have Python installed, one of the following should work.
+## Installation
+To install sleepyask, do one of the following:
 ```bash
 > pip install sleepyask
 > py -m pip install sleepyask
 > python -m pip install sleepyask
+```
+This project also depends on the following packages
+```bash
+> openai
 ```
 
 <p align="center">
