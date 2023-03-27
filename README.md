@@ -19,10 +19,10 @@
 		<img alt="Issues" src="https://img.shields.io/github/issues/hwelsters/sleepyask?style=for-the-badge&logo=starship&color=f9e1cb&logoColor=ffffff&labelColor=5f8872"></a>
 </p>
 
-## What does it do?
+## 💬 What does it do?
 ChatGPT currently limits the number of questions that users may ask per hour. The goal of this project is to allow users to just leave their computers on for extended periods of time to collect large amounts of responses from ChatGPT. There might not be a lot of practical use for this. Its main use is in research or data analysis.
 
-## Installation
+## 💬 Installation
 To install sleepyask, do one of the following:
 ```bash
 > pip install sleepyask
@@ -38,7 +38,7 @@ This project also depends on the following packages
   <img src="https://user-images.githubusercontent.com/84760072/227817860-f4aef84b-9992-4ddd-a99d-019566cce0c5.png" width="900" />
 </p>
 
-## Usage
+## 💬 Usage
 
 ### Authentication
 You are required to provide an organization as well as an API Key  
@@ -107,7 +107,7 @@ chat.ask(configs=configs,
   <img src="https://user-images.githubusercontent.com/84760072/227817860-f4aef84b-9992-4ddd-a99d-019566cce0c5.png" width="900" />
 </p>
 
-## Get involved
+## 💬 Get involved
 - 🐛 **Found a bug or interested in adding a feature?** - Create an [issue][issue]  
 - 🤗 **Want to help?** - Create a pull-request!  
 
