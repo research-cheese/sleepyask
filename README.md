@@ -42,14 +42,14 @@ This project also depends on the following packages
 
 ### Authentication
 You are required to provide an organization as well as an API Key  
-`organization` - Your organization ID. Get it here: https://platform.openai.com/account/org-settings  
-`api_key` - You create an API Key on OpenAI by. Get it here: https://platform.openai.com/account/api-keys
+- `organization` - Your organization ID. Get it here: https://platform.openai.com/account/org-settings  
+- `api_key` - You create an API Key on OpenAI by. Get it here: https://platform.openai.com/account/api-keys
 ```bash
 > Clicking on your profile picture on the top-right 
 > View API Keys 
 > Create new secret key.  
 ```
-`count` - This specifies the number of workers to create for asking questions. You can have multiple workers asking questions in parallel.  
+- `count` - This specifies the number of workers to create for asking questions. You can have multiple workers asking questions in parallel.  
 	
 Sample config
 ```python
@@ -94,18 +94,22 @@ chat.ask(configs=configs,
            questions=question_list,
            output_file_path=output_file_path,
            verbose=True)
-
-# chat.ask has the following optional parameters:
-# verbose : bool = Whether or not sleepyask should print its prompts. It is False by default.
-# model: str = The ChatGPT model to ask. This is "gpt-3.5-turbo" by default.
-# system_text: str | None = System text to prime ChatGPT. This is None by default.
-# temperature: float | None = Defines how non-deterministic ChatGPT is. Ranges from 0 - 2. Lower values are more deterministic. This is 1 by default
-# max_tokens: int | None = Defines the maximum number of tokens in ChatGPT's response. This is 2048 by default.
 ```
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/84760072/227817860-f4aef84b-9992-4ddd-a99d-019566cce0c5.png" width="900" />
 </p>
+
+## Parameters
+sleepyask.openai.ask has the following parameters:
+- `configs` :: **(required)** - should be a JSON containing your organization key, api key and the number of instances to spin up for asking ChatGPT questions.
+- `questions` :: **(required)** - should be a list of strings containing questions you would like to ask ChatGPT.
+- `output_file_path` :: **(required)** - should be a valid file path where you would like your responses to be stored
+- `verbose` :: **(optional)** - a boolean which specifies whether or not sleepyask should print its progress to the console. It is `False` by default
+- `model` :: **(optional)** - to specify which ChatGPT model to use. It is `"gpt-3.5-turbo"` by default
+- `system_text` :: **(optional)** - to specify system text. It is `
+- `temperature` :: **(optional)** - to specify how deterministic ChatGPT's responses are. Ranges from `0-2` where higher numbers represent increased randomness. It is `1` by default.
+- `max_tokens` :: **(optional)** - to specify the maximum number of tokens in ChatGPT's response. This is `2048` by default
 
 ## 💬 Get involved
 - 🐛 **Found a bug or interested in adding a feature?** - Create an [issue][issue]  
