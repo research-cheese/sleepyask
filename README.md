@@ -20,7 +20,7 @@
 </p>
 
 ## 💬 What does it do?
-ChatGPT currently limits the number of questions that users may ask per hour. The goal of this project is to allow users to just leave their computers on for extended periods of time to collect large amounts of responses from ChatGPT.
+ChatGPT rate limits the number of questions users may ask. The goal of this project is to allow users to just leave their computers on for extended periods of time to collect large amounts of responses from ChatGPT. Contributions are welcome! 🤗
 
 ## 💬 Installation
 To install sleepyask, do one of the following:
