@@ -89,7 +89,7 @@ chat.ask(configs=configs,
   <img src="https://user-images.githubusercontent.com/84760072/227817860-f4aef84b-9992-4ddd-a99d-019566cce0c5.png" width="900" />
 </p>
 
-## Parameters
+### Parameters
 `sleepyask.openai.ask` has the following parameters:
 #### Required
 - `configs` :: **(required)** - should be a list of dicts containing `organization` (your OpenAI organization ID), `api key` (your OpenAI api key) and the `count` (the number of instances to spin up for asking questions)
