@@ -42,48 +42,37 @@ This project also depends on the following packages
 
 ### Authentication
 You are required to provide an organization as well as an API Key  
-- `organization` - Your organization ID. Get it here: https://platform.openai.com/account/org-settings  
-- `api_key` - You create an API Key on OpenAI by. Get it here: https://platform.openai.com/account/api-keys
+- `organization` - Your OpenAI organization ID. Get it here: https://platform.openai.com/account/org-settings  
+- `api_key` - You OpenAI API Key. To get it:
 ```bash
-> Clicking on your profile picture on the top-right 
+> Go to https://platform.openai.com/account/api-keys
+> Login (if it is required)
+> Click on your profile picture on the top-right 
 > View API Keys 
 > Create new secret key.  
 ```
 - `count` - This specifies the number of workers to create for asking questions. You can have multiple workers asking questions in parallel.  
 	
-Sample config
-```python
-config = {
-	"organization": "Your OpenAI organization",
-	"api_key": "Your OpenAI api key",
-	"count": 1 
-}
-```
 ### Sample code
+It is recommended that you do not store your user credentials directly in your code. Instead, use something like `python-dotenv` to store your credentials in another file.
 ```python
+from dotenv import load_dotenv
 from sleepyask.openai import chat
 
-# Your ChatGPT login information
-config_1 = {
-	"organization": "Your ChatGPT organization",
-	"api_key": "Your ChatGPT api key",
+load_dotenv()  # take environment variables from .env.
+
+# Your ChatGPT authentication configs
+config = {
+	"organization": os.getenv('OPENAI_ORGANIZATION_1'),
+	"api_key": os.getenv('OPENAI_API_KEY_1'),
 	"count": 1
 }
 
-config_2 = {
-	"organization": "Your ChatGPT organization",
-	"api_key": "Your ChatGPT api key",
-	"count": 1
-}
+# List of authentication configs
+configs = [config]
 
-configs = [config_1, config_2]
-
-## List of questions you would like to ask ChatGPT
-question_list = [
-  'What is 1 + 1?',
-  'What is 1 + 2?',
-  'What is 1 + 3?'
-]
+# List of questions you would like to ask ChatGPT
+question_list = ['What is 1 + 1?', 'What is 1 + 2?', 'What is 1 + 3?']
 
 # The filename in which you would like your responses to be stored.
 # sleepyask will create this file for you. If you create it yourself, there might be some problems.
@@ -102,9 +91,12 @@ chat.ask(configs=configs,
 
 ## Parameters
 `sleepyask.openai.ask` has the following parameters:
-- `configs` :: **(required)** - should be a JSON containing your organization key, api key and the number of instances to spin up for asking ChatGPT questions.
+#### Required
+- `configs` :: **(required)** - should be a list of dicts containing `organization` (your OpenAI organization ID), `api key` (your OpenAI api key) and the `count` (the number of instances to spin up for asking questions)
 - `questions` :: **(required)** - should be a list of strings containing questions you would like to ask ChatGPT.
-- `output_file_path` :: **(required)** - should be a valid file path where you would like your responses to be stored
+- `output_file_path` :: **(required)** - should be a valid file path where you would like your responses to be stored. sleepyask will create this file for you. If you create this file yourself, there might be some problems.
+
+#### Optional
 - `verbose` :: **(optional)** - a boolean which specifies whether or not sleepyask should print its progress to the console. It is `False` by default
 - `model` :: **(optional)** - to specify which ChatGPT model to use. It is `"gpt-3.5-turbo"` by default
 - `system_text` :: **(optional)** - to specify system text. It is `
