@@ -101,7 +101,7 @@ chat.ask(configs=configs,
 </p>
 
 ## Parameters
-sleepyask.openai.ask has the following parameters:
+`sleepyask.openai.ask` has the following parameters:
 - `configs` :: **(required)** - should be a JSON containing your organization key, api key and the number of instances to spin up for asking ChatGPT questions.
 - `questions` :: **(required)** - should be a list of strings containing questions you would like to ask ChatGPT.
 - `output_file_path` :: **(required)** - should be a valid file path where you would like your responses to be stored
