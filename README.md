@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/84760072/227816421-0b042248-21e6-4bdf-9f3d-c6172123d478.png" width=450/>
+  <img src="https://user-images.githubusercontent.com/84760072/227817729-098182f3-6916-48d8-b17a-4e4126ddd245.png" width=450/>
 </p>
 
 <p align="center">
@@ -7,16 +7,16 @@
 </p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/84760072/227807017-21bcda58-4e89-4470-bb8d-738e9269ccae.png" width="900" />
+  <img src="https://user-images.githubusercontent.com/84760072/227817860-f4aef84b-9992-4ddd-a99d-019566cce0c5.png" width="900" />
 </p>
 
 <p align="center">
 	<a href="https://github.com/hwelsters/sleepyask/stargazers">
-		<img alt="Stargazers" src="https://img.shields.io/github/stars/hwelsters/sleepyask?style=for-the-badge&logo=starship&color=f9e1cb&logoColor=ffffff&labelColor=342430"></a>
+		<img alt="Stargazers" src="https://img.shields.io/github/stars/hwelsters/sleepyask?style=for-the-badge&logo=starship&color=f9e1cb&logoColor=ffffff&labelColor=5f8872"></a>
 	<a href="https://github.com/hwelsters/sleepyask/releases/latest">
-		<img alt="Releases" src="https://img.shields.io/github/release/hwelsters/sleepyask.svg?style=for-the-badge&logo=starship&color=f9e1cb&logoColor=ffffff&labelColor=342430"/></a>
+		<img alt="Releases" src="https://img.shields.io/github/release/hwelsters/sleepyask.svg?style=for-the-badge&logo=starship&color=f9e1cb&logoColor=ffffff&labelColor=5f8872"/></a>
 	<a href="https://github.com/hwelsters/sleepyask/issues">
-		<img alt="Issues" src="https://img.shields.io/github/issues/hwelsters/sleepyask?style=for-the-badge&logo=starship&color=f9e1cb&logoColor=ffffff&labelColor=342430"></a>
+		<img alt="Issues" src="https://img.shields.io/github/issues/hwelsters/sleepyask?style=for-the-badge&logo=starship&color=f9e1cb&logoColor=ffffff&labelColor=5f8872"></a>
 </p>
 
 ## What does it do?
@@ -35,7 +35,7 @@ This project also depends on the following packages
 ```
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/84760072/227807017-21bcda58-4e89-4470-bb8d-738e9269ccae.png" width="900" />
+  <img src="https://user-images.githubusercontent.com/84760072/227817860-f4aef84b-9992-4ddd-a99d-019566cce0c5.png" width="900" />
 </p>
 
 ## Usage
