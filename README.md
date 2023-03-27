@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  A small tool for automating collecting data from ChatGPT over long periods of time.
+  A small tool for collecting data from ChatGPT over long periods of time.
 </p>
 
 <p align="center">
