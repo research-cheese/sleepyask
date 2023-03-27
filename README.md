@@ -103,6 +103,10 @@ chat.ask(configs=configs,
 # max_tokens: int | None = Defines the maximum number of tokens in ChatGPT's response. This is 2048 by default.
 ```
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/84760072/227817860-f4aef84b-9992-4ddd-a99d-019566cce0c5.png" width="900" />
+</p>
+
 ## Get involved
 - 🐛 **Found a bug or interested in adding a feature?** - Create an [issue][issue]  
 - 🤗 **Want to help?** - Create a pull-request!  
