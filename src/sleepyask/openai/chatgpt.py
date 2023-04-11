@@ -15,6 +15,7 @@ def __append_to_file(output_file_path: str, data):
 
 
 def __clean_str_for_json(text: str):
+    return text
     return text.replace("\"", "\'")
 
 
