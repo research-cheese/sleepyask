@@ -106,6 +106,9 @@ def ask_questions(config, questions : list, output_file_path : str, verbose: boo
                 logging.error(traceback.format_exc())
                 question_queue.put(question)
                 time.sleep(120)
+            except:
+                question_queue.put(question)
+                time.sleep(120)
 
             question_queue.task_done()
 
