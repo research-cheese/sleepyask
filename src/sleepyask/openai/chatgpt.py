@@ -6,6 +6,7 @@ import queue
 import logging
 import traceback
 import time
+import openai
 
 def __append_to_file(output_file_path: str, data):
     with open(output_file_path, 'a') as outfile:
@@ -17,10 +18,12 @@ def __append_to_file(output_file_path: str, data):
 def __clean_str_for_json(text: str):
     return text
 
-
-def ask_questions(configs : list, questions : list, output_file_path : str, verbose: bool = False, model : str = "gpt-3.5-turbo", system_text : str | None = None, temperature : float | None = 1, max_tokens : int | None = 2048) -> None:
+def ask_questions(config, questions : list, output_file_path : str, verbose: bool = False, model : str = "gpt-3.5-turbo", system_text : str | None = None, temperature : float | None = 1, max_tokens : int | None = 2048) -> None:
     question_queue = queue.Queue()
     save_queue = queue.Queue()
+
+    openai.organization = config["organization"]
+    openai.api_key = config["api_key"]
 
     def loader_worker():
         if verbose:
@@ -42,7 +45,7 @@ def ask_questions(configs : list, questions : list, output_file_path : str, verb
                 for question in asked_questions:
                     check_set.add(question["question_number"])
                     max_index = max(max_index, question["question_number"])
-            
+
         for index in range(0, len(questions)):
             if not index in check_set:
                 question_queue.put(
@@ -59,10 +62,7 @@ def ask_questions(configs : list, questions : list, output_file_path : str, verb
             __append_to_file(output_file_path, to_add)
             save_queue.task_done()
 
-    def asker_worker(index, config):
-        import openai
-        openai.organization = config["organization"]
-        openai.api_key = config["api_key"]
+    def asker_worker(index):
 
         succeed = True
         while succeed:
@@ -71,8 +71,6 @@ def ask_questions(configs : list, questions : list, output_file_path : str, verb
             message = ''
             if verbose:
                 print(f"[sleepyask {index}] Asking:", question["question"])
-
-            saved_data = False
             try:
                 messages = [
                     {"role": "user", "content": question["question"]},
@@ -100,7 +98,6 @@ def ask_questions(configs : list, questions : list, output_file_path : str, verb
                 row_to_append = {"model": actual_model, "temperature": temperature, "max_tokens": max_tokens, "date_time": dt_string, "question_number":
                                  question["question_number"], "question": question["question"], "system_text": str(system_text), "response": __clean_str_for_json(message), **usage}
                 save_queue.put(row_to_append)
-                saved_data = True
 
             except KeyboardInterrupt:
                 succeed = False
@@ -109,19 +106,14 @@ def ask_questions(configs : list, questions : list, output_file_path : str, verb
                 logging.error(traceback.format_exc())
                 question_queue.put(question)
                 time.sleep(120)
-            except:
-                if not saved_data : 
-                    question_queue.put(question)
 
             question_queue.task_done()
 
     thread_refs = []
-    for index, config in enumerate(configs):
-        for num in range(config["count"]):
-            t = threading.Thread(target=asker_worker, daemon=True, kwargs={
-                'index': index * config["count"] + num, 'config': config})
-            thread_refs.append(t)
-            t.start()
+    for num in range(config["count"]):
+        t = threading.Thread(target=asker_worker, daemon=True, kwargs={'index': num})
+        thread_refs.append(t)
+        t.start()
 
     loader = threading.Thread(target=loader_worker, daemon=True)
     saver = threading.Thread(target=saver_worker, daemon=True)
