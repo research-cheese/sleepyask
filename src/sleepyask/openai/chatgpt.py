@@ -16,7 +16,6 @@ def __append_to_file(output_file_path: str, data):
 
 def __clean_str_for_json(text: str):
     return text
-    return text.replace("\"", "\'")
 
 
 def ask_questions(configs : list, questions : list, output_file_path : str, verbose: bool = False, model : str = "gpt-3.5-turbo", system_text : str | None = None, temperature : float | None = 1, max_tokens : int | None = 2048) -> None:
@@ -43,7 +42,7 @@ def ask_questions(configs : list, questions : list, output_file_path : str, verb
                 for question in asked_questions:
                     check_set.add(question["question_number"])
                     max_index = max(max_index, question["question_number"])
-
+            
         for index in range(0, len(questions)):
             if not index in check_set:
                 question_queue.put(
@@ -72,6 +71,8 @@ def ask_questions(configs : list, questions : list, output_file_path : str, verb
             message = ''
             if verbose:
                 print(f"[sleepyask {index}] Asking:", question["question"])
+
+            saved_data = False
             try:
                 messages = [
                     {"role": "user", "content": question["question"]},
@@ -99,6 +100,7 @@ def ask_questions(configs : list, questions : list, output_file_path : str, verb
                 row_to_append = {"model": actual_model, "temperature": temperature, "max_tokens": max_tokens, "date_time": dt_string, "question_number":
                                  question["question_number"], "question": question["question"], "system_text": str(system_text), "response": __clean_str_for_json(message), **usage}
                 save_queue.put(row_to_append)
+                saved_data = True
 
             except KeyboardInterrupt:
                 succeed = False
@@ -107,6 +109,9 @@ def ask_questions(configs : list, questions : list, output_file_path : str, verb
                 logging.error(traceback.format_exc())
                 question_queue.put(question)
                 time.sleep(120)
+            except:
+                if not saved_data : 
+                    question_queue.put(question)
 
             question_queue.task_done()
 
