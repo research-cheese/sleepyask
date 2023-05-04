@@ -56,6 +56,7 @@ You are required to provide an organization as well as an API Key
 ### Sample code
 It is recommended that you do not store your user credentials directly in your code. Instead, use something like `python-dotenv` to store your credentials in another file.
 ```python
+import os
 from dotenv import load_dotenv
 from sleepyask.openai import chat
 
