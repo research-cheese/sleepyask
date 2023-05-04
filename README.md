@@ -80,7 +80,7 @@ question_list = ['What is 1 + 1?', 'What is 1 + 2?', 'What is 1 + 3?']
 output_file_path = 'draw.json'  
 
 # Run sleepy_ask
-chat.ask(configs=configs,
+chat.ask(config=config,
            questions=question_list,
            output_file_path=output_file_path,
            verbose=True)
