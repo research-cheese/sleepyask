@@ -115,4 +115,4 @@ class Sleepyask:
             await self.log({"question_id": question_index,  **json.loads(response.text), "question": question_text, **self.configs})
         except: 
             if self.verbose: print(f"[sleepyask] INFO | ID {question_index} | ERROR")
-            self.question_queue.put(question_text)
+            self.question_queue.put(question)
