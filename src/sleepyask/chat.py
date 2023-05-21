@@ -55,7 +55,8 @@ class Sleepyask:
         await self.file_lock.acquire()
 
         with open(self.out_path, "a") as outfile:
-            outfile.write(json.dump(response))
+            print("LOGGING")
+            outfile.write(json.dumps(response))
             outfile.write("\n")
 
         self.succeed += 1
@@ -68,11 +69,12 @@ class Sleepyask:
             payload = {"messages": [{"role": "user", "content": question}], **self.configs}
             response = await openai_async.chat_complete(payload=payload, api_key=self.api_key, timeout=self.timeout)
             
+            if self.verbose: print(f"[sleepyask] INFO | ID {question_index} | RECEIVED: {response.text}")
             if response.status_code != 200: 
                 if self.verbose: print(f"[sleepyask] INFO | ID {question_index} | {response.status_code}")
                 raise ValueError("Should be 200")
 
-            await self.log(response.text)
+            await self.log(json.loads(response.text))
         except: 
             if self.verbose: print(f"[sleepyask] INFO | ID {question_index} | ERROR")
             self.question_queue.put(question)
