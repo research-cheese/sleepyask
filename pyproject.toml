@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sleepyask"
-version = "5.2.0"
+version = "6.0.1"
 authors = [
   { name="hwelsters", email="redacted@redacted.redacted" },
 ]
@@ -13,8 +13,7 @@ readme = "README.md"
 requires-python = ">=3.7"
 classifiers = []
 dependencies = [
-  'openai >= 0.27.2',
-  'fasteners >= 0.18'
+  'openai-async>=0.0.3'
 ]
 
 [project.urls]
