@@ -58,32 +58,32 @@ It is recommended that you do not store your user credentials directly in your c
 ```python
 import os
 from dotenv import load_dotenv
-from sleepyask.openai import chat
+
+from sleepyask.chat import Sleepyask
 
 load_dotenv()  # take environment variables from .env.
 
-# Your ChatGPT authentication configs
-config = {
-	"organization": os.getenv('OPENAI_ORGANIZATION_1'),
-	"api_key": os.getenv('OPENAI_API_KEY_1'),
-	"count": 1
-}
+TIMEOUT = 10000
+RETRY_TIME = 5
+RATE_LIMIT = 5
+API_KEY = os.getenv('OPENAI_API_KEY')
+QUESTION_LIST = [
+	{'index': 1, 'text': 'What is 1 + 1?'},
+	{'index': 2, 'text': 'What is 1 + 2?'},
+	{'index': 3, 'text': 'What is 1 + 3?'}
+]
+OUT_PATH = 'output.jsonl'
 
-# List of authentication configs
-configs = [config]
 
-# List of questions you would like to ask ChatGPT
-question_list = ['What is 1 + 1?', 'What is 1 + 2?', 'What is 1 + 3?']
+CONFIGS = { "model": "gpt-3.5-turbo", "n": 10, "temperature": 0.7}
+sleepyask = Sleepyask(configs=CONFIGS, 
+                      rate_limit=RATE_LIMIT,
+                      api_key=API_KEY, 
+                      timeout=TIMEOUT, 
+                      verbose=True,
+                      retry_time=RETRY_TIME)
 
-# The filename in which you would like your responses to be stored.
-# sleepyask will create this file for you. If you create it yourself, there might be some problems.
-output_file_path = 'draw.json'  
-
-# Run sleepy_ask
-chat.ask(config=config,
-           questions=question_list,
-           output_file_path=output_file_path,
-           verbose=True)
+sleepyask.start(question_list=QUESTION, out_path=OUT_PATH)
 ```
 
 <p align="center">
