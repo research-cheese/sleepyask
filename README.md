@@ -67,6 +67,8 @@ TIMEOUT = 10000
 RETRY_TIME = 5
 RATE_LIMIT = 5
 API_KEY = os.getenv('OPENAI_API_KEY')
+
+# Index should be unique as it will be used to avoid repeat questions
 QUESTION_LIST = [
 	{'index': 1, 'text': 'What is 1 + 1?'},
 	{'index': 2, 'text': 'What is 1 + 2?'},
@@ -85,24 +87,6 @@ sleepyask = Sleepyask(configs=CONFIGS,
 
 sleepyask.start(question_list=QUESTION, out_path=OUT_PATH)
 ```
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/84760072/227817860-f4aef84b-9992-4ddd-a99d-019566cce0c5.png" width="900" />
-</p>
-
-### Parameters
-`sleepyask.openai.ask` has the following parameters:
-#### Required
-- `configs` :: **(required)** - should be a list of dicts containing `organization` (your OpenAI organization ID), `api key` (your OpenAI api key) and the `count` (the number of instances to spin up for asking questions)
-- `questions` :: **(required)** - should be a list of strings containing questions you would like to ask ChatGPT.
-- `output_file_path` :: **(required)** - should be a valid file path where you would like your responses to be stored. sleepyask will create this file for you. If you create this file yourself, there might be some problems.
-
-#### Optional
-- `verbose` :: **(optional)** - a boolean which specifies whether or not sleepyask should print its progress to the console. It is `False` by default
-- `model` :: **(optional)** - to specify which ChatGPT model to use. It is `"gpt-3.5-turbo"` by default
-- `system_text` :: **(optional)** - to specify system text. It is `
-- `temperature` :: **(optional)** - to specify how deterministic ChatGPT's responses are. Ranges from `0-2` where higher numbers represent increased randomness. It is `1` by default.
-- `max_tokens` :: **(optional)** - to specify the maximum number of tokens in ChatGPT's response. This is `2048` by default
 
 ## 💬 Get involved
 - 🐛 **Found a bug or interested in adding a feature?** - Create an [issue][issue]  
