@@ -18,7 +18,6 @@ class Sleepyask:
                  rate_limit: int = 5, 
                  api_key: str = "", 
                  timeout: int = 100, 
-                 out_path : str = "", 
                  verbose: bool = False, 
                  retry_time: int = 60,
                  system_text: str = ""
@@ -34,7 +33,6 @@ class Sleepyask:
         self.rate_limit = rate_limit
         self.api_key = api_key
         self.timeout = timeout
-        self.out_path = out_path
         self.verbose = verbose
         self.retry_time = retry_time
         self.system_text = system_text
@@ -58,10 +56,12 @@ class Sleepyask:
             outfile.close()
         return asked_ids
 
-    def start(self, question_list):
+    def start(self, question_list, out_path):
         """
         `question_list` list of questions to ask ChatGPT
         """
+        self.out_path = out_path
+        
         asyncio.run(self.__start(question_list))
 
     async def __start(self, question_list):
@@ -71,10 +71,8 @@ class Sleepyask:
 
         asked_ids = self.get_asked_ids()
 
-        # print("HERE")
         for question in question_list: 
             if str(question["id"]) in asked_ids: continue
-            print(question)
             self.question_queue.put(question)
 
         while self.succeed < len(question_list):
