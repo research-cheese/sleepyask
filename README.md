@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  A small tool for collecting data from ChatGPT over long periods of time.
+  A small tool for collecting a large amount of responses from GPT-3.5 models.
 </p>
 
 <p align="center">
@@ -19,7 +19,7 @@
 		<img alt="Issues" src="https://img.shields.io/github/issues/hwelsters/sleepyask?style=for-the-badge&logo=starship&color=f9e1cb&logoColor=ffffff&labelColor=5f8872"></a>
 </p>
 
-## 💬 What does it do?
+## Intro
 ChatGPT rate limits the number of questions users may ask. The goal of this project is to allow users to just leave their computers on for extended periods of time to collect large amounts of responses from ChatGPT. Contributions are welcome! 🤗
 
 ## 💬 Installation
